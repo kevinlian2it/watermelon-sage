@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="text-center">
+    <h2 class="font-weight-bold">Welcome!</h2>
+    <p class="mt-3">Ready to learn how to snag the best watermelon at the store?</p>
+
+    <div class="d-flex justify-content-center mt-5">
+      <div class="mx-4">
+        <a href="/learn" class="btn btn-light border p-5 d-block">
+          <strong>START</strong>
+        </a>
+        <p class="mt-2">Learn the traits of a good watermelon!</p>
+      </div>
+
+      <div class="mx-4">
+        <a href="/challenge" class="btn btn-light border p-5 d-block">
+          <strong>CHALLENGE</strong>
+        </a>
+        <p class="mt-2">Test your knowledge with our shopping simulation!</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

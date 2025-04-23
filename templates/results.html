@@ -4,6 +4,6 @@
   <div class="page-container">
     <h1>Challenge Complete!</h1>
     <p>Your final score: {{ score }}/10</p>
-    <a href="{{ url_for('home_page') }}"><button>Retry</button></a>
+    <a href="{{ url_for('challenge', scenario=1) }}"><button>Retry</button></a>
   </div>
 {% endblock %}

@@ -3,12 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Watermelon Sage</title>
+    <link rel="icon" href="data:,">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
+    <title>The Watermelon Sage</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -17,7 +22,7 @@
         <div>
           <a class="nav-link d-inline" href="/">Home</a>
           <a class="nav-link d-inline" href="/learn">Learn</a>
-          <a class="nav-link d-inline" href="/challenge">Challenge</a>
+          <a class="nav-link d-inline" href="{{ url_for('challenge', scenario=1) }}">Challenge</a>
         </div>
       </div>
     </nav>

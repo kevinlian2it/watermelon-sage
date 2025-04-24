@@ -5,16 +5,16 @@ app = Flask(__name__)
 app.secret_key = 'your-secret-key'
 
 scenarios = [
-    { 'title': 'Pick out the sweetest watermelon', 'subtitle': 'Tap on a watermelon to select' },
-    { 'title': 'Pick out the crispest watermelon', 'subtitle': 'Tap on each watermelon to hear its sound' },
-    { 'title': 'Pick out the ripest watermelon', 'subtitle': 'Pick the one with the darkest field spot' },
-    { 'title': 'Pick out the sweetest watermelon (webbing)', 'subtitle': 'Choose the watermelon with the most webbing' },
-    { 'title': 'Pick out the sweetest watermelon (weight)', 'subtitle': 'Drag each onto the scale to weigh it' },
-    { 'title': 'Pick out the ripest watermelon', 'subtitle': 'Pick the one with the largest field spot' },
-    { 'title': 'Combine traits: pick the best watermelon', 'subtitle': 'Tap, weigh, and choose the best' },
-    { 'title': 'Combine traits: pick the best watermelon', 'subtitle': 'Tap, weigh, and choose the best' },
-    { 'title': 'Combine traits: pick the best watermelon', 'subtitle': 'Tap, weigh, and choose the best' },
-    { 'title': 'Combine traits: pick the best watermelon', 'subtitle': 'Tap, weigh, and choose the best' },
+    { 'title': 'Pick out the sweetest watermelon', 'subtitle': 'Pick out the sweetest watermelon' },
+    { 'title': 'Pick out the crispest watermelon', 'subtitle': 'Tap on each watermelon to hear its sound. Pick out the crispest watermelon' },
+    { 'title': 'Pick out the ripest watermelon', 'subtitle': 'Pick out the ripest watermelon' },
+    { 'title': 'Pick out the sweetest watermelon (webbing)', 'subtitle': 'Pick out the sweetest watermelon' },
+    { 'title': 'Pick out the sweetest watermelon (weight)', 'subtitle': 'Drag each watermelon onto the scale to weigh it. Pick out the sweetest watermelon' },
+    { 'title': 'Pick out the ripest watermelon', 'subtitle': 'Pick out the ripest watermelon' },
+    { 'title': 'Combine traits: pick the best watermelon', 'subtitle': 'Tap the watermelons to hear their sound and weigh them on the scale to help pick the best one' },
+    { 'title': 'Combine traits: pick the best watermelon', 'subtitle': 'Tap the watermelons to hear their sound and weigh them on the scale to help pick the best one' },
+    { 'title': 'Combine traits: pick the best watermelon', 'subtitle': 'Tap the watermelons to hear their sound and weigh them on the scale to help pick the best one' },
+    { 'title': 'Combine traits: pick the best watermelon', 'subtitle': 'Tap the watermelons to hear their sound and weigh them on the scale to help pick the best one' },
 ]
 
 @app.route("/")

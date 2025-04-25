@@ -16,7 +16,7 @@ lessons = [
         "good_sound": "audio/reverb.mp3",
         "bad_sound": "audio/dud.mp3",
         "good_text": "A bouncy, reverberating sound indicates a crisp and intact interior.",
-        "bad_text": "A dull sound with no reverb indicates a bruised, soggy interior.",
+        "bad_text": "A dull sound with no reverb indicates a bruised, soggy interior."
     },
 
     {
@@ -28,7 +28,7 @@ lessons = [
         "good_alt": "15 lb watermelon",
         "bad_alt": "10 lb watermelon",
         "good_text": "A watermelon that is heavy for its size is likely very juicy.",
-        "bad_text": "A watermelon that is lighter for its size likely doesn’t contain enough water and is thus not juicy. ",
+        "bad_text": "A watermelon that is lighter for its size likely doesn’t contain enough water and is thus not juicy. "
     },
 
     {
@@ -40,7 +40,7 @@ lessons = [
         "good_alt": "symmetrical oval watermelon",
         "bad_alt": "bumpy watermelon",
         "good_text": "A symmetrical watermelon with an even surface is likely to be juicier and sweeter.",
-        "bad_text": "Irregular bumps may be a sign of incomplete pollination or growth stress.",
+        "bad_text": "Irregular bumps may be a sign of incomplete pollination or growth stress."
     },
 
     {
@@ -52,7 +52,7 @@ lessons = [
         "good_alt": "watermelon with dark field spot",
         "bad_alt": "watermelon with pale field spot",
         "good_text": "A darker, yellow-orange field spot indicates a riper, sweeter watermelon that spent longer on the ground.",
-        "bad_text": "A light field spot indicates that the watermelon was harvested prematurely and is underripe.",
+        "bad_text": "A light field spot indicates that the watermelon was harvested prematurely and is underripe."
     },
 
     {
@@ -64,7 +64,7 @@ lessons = [
         "good_alt": "watermelon with lots of webbing",
         "bad_alt": "watermelon with little webbing",
         "good_text": "Lots of webbing indicates extensive bee pollination, usually corresponding to a sweeter watermelon.",
-        "bad_text": "Minimal or no webbing indicates less bee pollination. This usually results in a less sweet fruit.",
+        "bad_text": "Minimal or no webbing indicates less bee pollination. This usually results in a less sweet fruit."
     },
 
     {
@@ -76,21 +76,116 @@ lessons = [
         "good_alt": "dull watermelon",
         "bad_alt": "shiny watermelon",
         "good_text": "A dull exterior indicates a watermelon that has spent more time on the vine and is thus adequately ripe.",
-        "bad_text": "A shiny watermelon with its waxy protective exterior intact indicates a watermelon that is not yet ripe.",
+        "bad_text": "A shiny watermelon with its waxy protective exterior intact indicates a watermelon that is not yet ripe."
     }
 ]
 
 scenarios = [
-    { 'title': 'Pick out the sweetest watermelon', 'subtitle': 'Pick out the sweetest watermelon' },
-    { 'title': 'Pick out the crispest watermelon', 'subtitle': 'Tap on each watermelon to hear its sound. Pick out the crispest watermelon' },
-    { 'title': 'Pick out the ripest watermelon', 'subtitle': 'Pick out the ripest watermelon' },
-    { 'title': 'Pick out the sweetest watermelon (webbing)', 'subtitle': 'Pick out the sweetest watermelon' },
-    { 'title': 'Pick out the sweetest watermelon (weight)', 'subtitle': 'Drag each watermelon onto the scale to weigh it. Pick out the sweetest watermelon' },
-    { 'title': 'Pick out the ripest watermelon', 'subtitle': 'Pick out the ripest watermelon' },
-    { 'title': 'Combine traits: pick the best watermelon', 'subtitle': 'Tap the watermelons to hear their sound and weigh them on the scale to help pick the best one' },
-    { 'title': 'Combine traits: pick the best watermelon', 'subtitle': 'Tap the watermelons to hear their sound and weigh them on the scale to help pick the best one' },
-    { 'title': 'Combine traits: pick the best watermelon', 'subtitle': 'Tap the watermelons to hear their sound and weigh them on the scale to help pick the best one' },
-    { 'title': 'Combine traits: pick the best watermelon', 'subtitle': 'Tap the watermelons to hear their sound and weigh them on the scale to help pick the best one' },
+    { 
+        "scenario_id": "1",
+        "title": "Drag the sweetest watermelon into the basket",
+        "img_1": "images/small_webbing.png",
+        "img_2": "images/base.png",
+        "img_3": "images/large_webbing.png",
+        "basket": "images/basket.png",
+        "basket_full": "images/basket_full.png",
+        "answer_1": "Wrong!",
+        "answer_2": "Wrong!",
+        "answer_3": "Correct!",
+        "feedback_1": "This watermelon has minimal webbing.",
+        "feedback_2": "This watermelon has no webbing.",
+        "feedback_3": "This is the watermelon with the most webbing."
+    },
+
+    { 
+        "scenario_id": "2",
+        "title": "Drag the crispest watermelon into the basket", 
+        "subtitle": "Tap on each watermelon to hear its sound.",
+        "img_1": "images/base.png",
+        "img_2": "images/base.png",
+        "img_3": "images/base.png",
+        "audio_1": "audio/ok.mp3",
+        "audio_2": "audio/reverb.mp3",
+        "audio_3": "audio/dud.mp3",
+        "basket": "images/basket.png",
+        "basket_full": "images/basket_full.png",
+        "answer_1": "Wrong!",
+        "answer_2": "Correct!",
+        "answer_3": "Wrong!",
+        "feedback_1": "The sound is somewhat bouncy, but there's a watermelon that reverberates better.",
+        "feedback_2": "This watermelon reverberates nicely when tapped.",
+        "feedback_3": "This watermelon doesn't reverberate when tapped."
+    },
+
+    { 
+        "scenario_id": "3",
+        "title": "Drag the ripest watermelon into the basket",
+        "img_1": "images/dark_field_spot.png",
+        "img_2": "images/pale_field_spot.png",
+        "img_3": "images/medium_field_spot.png",
+        "basket": "images/basket.png",
+        "basket_full": "images/basket_full.png",
+        "answer_1": "Correct!",
+        "answer_2": "Wrong!",
+        "answer_3": "Wrong!",
+        "feedback_1": "This watermelon has the darkest field spot.",
+        "feedback_2": "This watermelon has the palest field spot. Look for the option with the darkest field spot.",
+        "feedback_3": "There is an option with a darker field spot."
+    },
+
+    { 
+        "scenario_id": "4",
+        "title": "Drag the sweetest watermelon into the basket",
+        "img_1": "images/oval.png",
+        "img_2": "images/bumpy.png",
+        "img_3": "images/base.png",
+        "basket": "images/basket.png",
+        "basket_full": "images/basket_full.png",
+    },
+
+    { 
+        "scenario_id": "5",
+        "title": "Drag the juiciest watermelon into the basket",
+        "subtitle": "Drag each watermelon onto the scale to weigh it to you decide.",
+        "img_1": "images/base.png",
+        "img_2": "images/base.png",
+        "img_3": "images/base.png",
+        "scale": "images/scale.png",
+        "scale_10_lb": "images/scale_10_lb.png",
+        "scale_15_lb": "images/scale_15_lb.png",
+        "basket": "images/basket.png",
+        "basket_full": "images/basket_full.png",
+    },
+
+    { 
+        "scenario_id": "6",
+        "title": "Pick out the ripest watermelon",
+        "img_1": "images/shiny.png",
+        "img_2": "images/base.png",
+        "img_3": "images/dull.png",
+        "basket": "images/basket.png",
+        "basket_full": "images/basket_full.png",
+    },
+
+    { 
+        "scenario_id": "7",
+        'title': 'Combine traits: pick the best watermelon', 'subtitle': 'Tap the watermelons to hear their sound and weigh them on the scale to help pick the best one' 
+    },
+
+    { 
+        "scenario_id": "8",
+        'title': 'Combine traits: pick the best watermelon', 'subtitle': 'Tap the watermelons to hear their sound and weigh them on the scale to help pick the best one' 
+    },
+
+    { 
+        "scenario_id": "9",
+        'title': 'Combine traits: pick the best watermelon', 'subtitle': 'Tap the watermelons to hear their sound and weigh them on the scale to help pick the best one' 
+    },
+
+    { 
+        "scenario_id": "10",
+        'title': 'Combine traits: pick the best watermelon', 'subtitle': 'Tap the watermelons to hear their sound and weigh them on the scale to help pick the best one' 
+    }
 ]
 
 @app.route("/")

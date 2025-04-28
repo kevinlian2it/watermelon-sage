@@ -208,6 +208,22 @@ def challenge(scenario=0):
         score=score
     )
 
+@app.route('/submit_answer/<int:scenario>/<int:choice>', methods=['POST'])
+def submit_answer(scenario, choice):
+    # guard: valid scenario and choice
+    if not (1 <= scenario <= len(scenarios) and 1 <= choice <= 3):
+        return jsonify({'error': 'Invalid request'}), 400
+
+    # check correctness
+    correct = (scenarios[scenario-1].get(f'answer_{choice}') == 'Correct!')
+    if correct:
+        session['score'] = session.get('score', 0) + 1
+
+    return jsonify({
+        'score': session.get('score', 0),
+        'correct': correct
+    })
+
 @app.route('/results')
 def results():
     score = session.get('score', 0)

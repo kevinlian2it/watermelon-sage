@@ -1,35 +1,57 @@
 {% extends "layout.html" %}
-
+{% block title %}Scenario {{scenario}} – Watermelon Challenge{% endblock %}
 {% block content %}
-  <title>Watermelon Challenge - Scenario {{ scenario }}/10</title>
+<div class="challenge">
+  <h2 class="challenge-title">SCENARIO {{scenario}}</h2>
+  {% if scenarios[scenario-1].subtitle %}
+    <p class="subtitle">{{scenarios[scenario-1].subtitle}}</p>
+  {% endif %}
 
-  <body>
-    <!-- Challenge Section -->
-    <div class="challenge-container">
-      <div class="challenge-header">
-        <h2>Scenario {{ scenario }}</h2>
-        <div class="subtitle">{{ scenarios[scenario-1].subtitle }}</div>
-      </div>
+  <div class="challenge-grid">
+    {# three watermelon options #}
+    {% for i in [1,2,3] %}
+      <img
+        src="{{ url_for('static', filename=scenarios[scenario-1]['img_'~i]) }}"
+        alt="Option {{i}}"
+        draggable="true"
+        class="watermelon-img"
+        id="opt-{{i}}"
+        data-answer="{{ scenarios[scenario-1]['answer_'~i] }}"
+        data-feedback="{{ scenarios[scenario-1]['feedback_'~i] or '' }}"
+      >
+      {% if scenarios[scenario-1].get('audio_'~i) %}
+        <audio id="audio-{{i}}" src="{{ url_for('static', filename=scenarios[scenario-1]['audio_'~i]) }}"></audio>
+      {% endif %}
+    {% endfor %}
 
-      <!-- Watermelon placeholders -->
-      <div class="watermelon-grid">
-        {% for i in range(1,5) %}
-          <div class="watermelon-item">Image {{ i }}</div>
-        {% endfor %}
-      </div>
+    {# the empty basket #}
+    <img
+      src="{{ url_for('static', filename=scenarios[scenario-1].basket) }}"
+      alt="Basket"
+      id="basket"
+      class="basket-img"
+    >
+  </div>
 
-      <!-- Basket for drag-drop -->
-      <div class="basket">Drag your choice here</div>
+  <div id="feedback" class="feedback hidden">
+    <h3 id="feedback-text"></h3>
+  </div>
 
-      <!-- Controls -->
-      <div class="controls">
-        {% if scenario < 10 %}
-          <a href="{{ url_for('challenge', scenario=scenario+1) }}"><button>Next</button></a>
-        {% else %}
-          <a href="{{ url_for('results') }}"><button>Results</button></a>
-        {% endif %}
-        <div class="score">Score: {{ score }}/10</div>
-      </div>
-    </div>
-  </body>
+  <div class="controls">
+    <div class="score-box">SCORE: <span id="score">{{score}}</span>/10</div>
+    {% if scenario < 10 %}
+      <a href="{{ url_for('challenge', scenario=scenario+1) }}">
+        <button id="next-btn" disabled>Next</button>
+      </a>
+    {% else %}
+      <a href="{{ url_for('results') }}">
+        <button id="results-btn" disabled>Results</button>
+      </a>
+    {% endif %}
+  </div>
+</div>
+<script>
+  window.CURRENT_SCENARIO = {{ scenario }};
+</script>
+<script src="{{ url_for('static', filename='js/challenge.js') }}"></script>
 {% endblock %}

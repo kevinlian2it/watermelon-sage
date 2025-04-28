@@ -1,8 +1,11 @@
 from flask import Flask
 from flask import Response, request, jsonify, render_template, redirect, url_for, session
+import datetime
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key'
+
+SERVER_START = datetime.datetime.utcnow()
 
 lessons = [
     {
@@ -210,13 +213,39 @@ scenarios = [
     }
 ]
 
+@app.before_request
+def reset_after_restart():
+    # only care about our learn routes
+    if request.endpoint in ('learn', 'lesson'):
+        sess_start = session.get('session_start')
+        if not sess_start or datetime.datetime.fromisoformat(sess_start) < SERVER_START:
+            # first time this session touches learn after a server restart
+            session['session_start']   = SERVER_START.isoformat()
+            session['visited_lessons'] = []
+
 @app.route("/")
 def home_page():
     return render_template('home.html')
 
 @app.route('/learn')
 def learn():
-    return render_template('learn.html')
+    visited = session.get('visited_lessons', [])
+    return render_template('learn.html',
+                           lessons=lessons,
+                           visited_lessons=visited)
+
+@app.route('/learn/<int:lesson_id>')
+def lesson(lesson_id):
+    if not (1 <= lesson_id <= len(lessons)):
+        return redirect(url_for('learn'))
+
+    # mark visited
+    visited = set(session.get('visited_lessons', []))
+    visited.add(lesson_id)
+    session['visited_lessons'] = list(visited)
+
+    data = lessons[lesson_id-1]
+    return render_template('lesson.html', lesson=data)
 
 @app.route('/challenge/<int:scenario>')
 def challenge(scenario=0):

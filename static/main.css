@@ -110,3 +110,19 @@ body { font-family: sans-serif; background-color: #f0f0f0; }
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+.trait-img {
+    width: 160px;
+    height: auto;
+}
+
+.btn-light.border:hover {
+    background-color: #e9ecef;
+    border-color:     #e9ecef;
+  }
+
+.btn-visited {
+    background-color: #e9ecef !important;
+    border-color:     #e9ecef !important;
+    color:            #495057 !important;
+}

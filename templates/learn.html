@@ -3,33 +3,43 @@
 {% block content %}
   <div class="text-center">
     <h2 class="font-weight-bold mb-3">LEARN YOUR WATERMELONS</h2>
-    <p class="mb-4">To pick out the best watermelon, you’ll need to look at the following traits:</p>
-
-    <div class="container">
-      <div class="row justify-content-center mb-3">
+    <p class="mb-4">
+      To pick out the best watermelon, you’ll need to look at the following traits:
+    </p>
+    <div class="row justify-content-center mb-3">
+      {% for l in lessons[:3] %}
         <div class="col-4 col-md-2 mb-3">
-          <button class="btn btn-light border w-100 p-4">SOUND</button>
+          <a href="{{ url_for('lesson', lesson_id=l.lesson_id|int) }}"
+             class="btn w-100 p-4
+               {% if l.lesson_id|int in visited_lessons %}
+                 btn-visited
+               {% else %}
+                 btn-light border
+               {% endif %}">
+            {{ l.title|upper }}
+          </a>
         </div>
+      {% endfor %}
+    </div>
+    <div class="row justify-content-center mb-3">
+      {% for l in lessons[3:6] %}
         <div class="col-4 col-md-2 mb-3">
-          <button class="btn btn-light border w-100 p-4">WEIGHT</button>
+          <a href="{{ url_for('lesson', lesson_id=l.lesson_id|int) }}"
+             class="btn w-100 p-4
+               {% if l.lesson_id|int in visited_lessons %}
+                 btn-visited
+               {% else %}
+                 btn-light border
+               {% endif %}">
+            {{ l.title|upper }}
+          </a>
         </div>
-        <div class="col-4 col-md-2 mb-3">
-          <button class="btn btn-light border w-100 p-4">SHAPE</button>
-        </div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-4 col-md-2 mb-3">
-          <button class="btn btn-light border w-100 p-4">FIELD SPOT</button>
-        </div>
-        <div class="col-4 col-md-2 mb-3">
-          <button class="btn btn-light border w-100 p-4">WEBBING</button>
-        </div>
-        <div class="col-4 col-md-2 mb-3">
-          <button class="btn btn-light border w-100 p-4">SHEEN</button>
-        </div>
-      </div>
+      {% endfor %}
     </div>
 
-    <a href="{{ url_for('challenge', scenario=1) }}" class="btn btn-outline-secondary mt-4">Confident? Skip ahead to the challenge!</a>
+    <a href="{{ url_for('challenge', scenario=1) }}"
+       class="btn btn-outline-secondary mt-4">
+      Confident? Skip ahead to the challenge!
+    </a>
   </div>
 {% endblock %}

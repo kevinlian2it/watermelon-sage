@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="text-center">
+    <h2 class="font-weight-bold mb-3">{{ lesson.title|upper }}</h2>
+    <p class="mb-4">{{ lesson.description }}</p>
+
+    <div class="row justify-content-center mb-4">
+      <!-- Good watermelon column -->
+      <div class="col-12 col-md-4 text-center">
+        <img src="{{ url_for('static', filename=lesson.good_image) }}"
+             alt="{{ lesson.good_alt }}"
+             class="img-fluid trait-img mb-2">
+        <p>{{ lesson.good_text }}</p>
+      </div>
+
+      <!-- Bad watermelon column -->
+      <div class="col-12 col-md-4 text-center">
+        <img src="{{ url_for('static', filename=lesson.bad_image) }}"
+             alt="{{ lesson.bad_alt }}"
+             class="img-fluid trait-img mb-2">
+        <p>{{ lesson.bad_text }}</p>
+      </div>
+    </div>
+
+    <a href="{{ url_for('learn') }}" class="btn btn-outline-dark">
+      Got it!
+    </a>
+  </div>
+{% endblock %}

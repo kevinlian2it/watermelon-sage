@@ -83,7 +83,7 @@ lessons = [
 scenarios = [
     { 
         "scenario_id": "1",
-        "title": "Drag the sweetest watermelon into the basket",
+        "subtitle": "Drag the sweetest watermelon into the basket",
         "img_1": "images/small_webbing.png",
         "img_2": "images/base.png",
         "img_3": "images/large_webbing.png",
@@ -99,8 +99,7 @@ scenarios = [
 
     { 
         "scenario_id": "2",
-        "title": "Drag the crispest watermelon into the basket", 
-        "subtitle": "Tap on each watermelon to hear its sound.",
+        "subtitle": "Tap on each watermelon to hear its sound. Drag the crispest watermelon into the basket",
         "img_1": "images/base.png",
         "img_2": "images/base.png",
         "img_3": "images/base.png",
@@ -119,7 +118,7 @@ scenarios = [
 
     { 
         "scenario_id": "3",
-        "title": "Drag the ripest watermelon into the basket",
+        "subtitle": "Drag the ripest watermelon into the basket",
         "img_1": "images/dark_field_spot.png",
         "img_2": "images/pale_field_spot.png",
         "img_3": "images/medium_field_spot.png",
@@ -135,7 +134,7 @@ scenarios = [
 
     { 
         "scenario_id": "4",
-        "title": "Drag the sweetest watermelon into the basket",
+        "subtitle": "Drag the sweetest watermelon into the basket",
         "img_1": "images/oval.png",
         "img_2": "images/bumpy.png",
         "img_3": "images/base.png",
@@ -145,8 +144,7 @@ scenarios = [
 
     { 
         "scenario_id": "5",
-        "title": "Drag the juiciest watermelon into the basket",
-        "subtitle": "Drag each watermelon onto the scale to weigh it to you decide.",
+        "subtitle": "Drag each watermelon onto the scale to weigh it. Pick out the juiciest watermelon",
         "img_1": "images/base.png",
         "img_2": "images/base.png",
         "img_3": "images/base.png",
@@ -159,7 +157,7 @@ scenarios = [
 
     { 
         "scenario_id": "6",
-        "title": "Pick out the ripest watermelon",
+        "subtitle": "Pick out the ripest watermelon",
         "img_1": "images/shiny.png",
         "img_2": "images/base.png",
         "img_3": "images/dull.png",
@@ -169,22 +167,46 @@ scenarios = [
 
     { 
         "scenario_id": "7",
-        'title': 'Combine traits: pick the best watermelon', 'subtitle': 'Tap the watermelons to hear their sound and weigh them on the scale to help pick the best one' 
+        'title': 'Combine traits: pick the best watermelon', 
+        'subtitle': 'Tap the watermelons to hear their sound and weigh them on the scale to help pick the best one',
+        "img_1": "images/shiny.png",
+        "img_2": "images/dark_field_spot.png",
+        "img_3": "images/large_webbing.png",
+        "basket": "images/basket.png",
+        "basket_full": "images/basket_full.png",
     },
 
     { 
         "scenario_id": "8",
-        'title': 'Combine traits: pick the best watermelon', 'subtitle': 'Tap the watermelons to hear their sound and weigh them on the scale to help pick the best one' 
+        'title': 'Combine traits: pick the best watermelon',
+        'subtitle': 'Tap the watermelons to hear their sound and weigh them on the scale to help pick the best one',
+        "img_1": "images/dark_field_spot.png",
+        "img_2": "images/oval_dark_fs_small_web.png",
+        "img_3": "images/med_fs_large_web.png",
+        "basket": "images/basket.png",
+        "basket_full": "images/basket_full.png",
     },
 
     { 
         "scenario_id": "9",
-        'title': 'Combine traits: pick the best watermelon', 'subtitle': 'Tap the watermelons to hear their sound and weigh them on the scale to help pick the best one' 
+        'title': 'Combine traits: pick the best watermelon',
+        'subtitle': 'Tap the watermelons to hear their sound and weigh them on the scale to help pick the best one',
+        "img_1": "images/oval_pale_fs_large_web.png",
+        "img_2": "images/shiny_bumpy_small_web.png",
+        "img_3": "images/dull.png",
+        "basket": "images/basket.png",
+        "basket_full": "images/basket_full.png",
     },
 
     { 
         "scenario_id": "10",
-        'title': 'Combine traits: pick the best watermelon', 'subtitle': 'Tap the watermelons to hear their sound and weigh them on the scale to help pick the best one' 
+        'title': 'Combine traits: pick the best watermelon',
+        'subtitle': 'Tap the watermelons to hear their sound and weigh them on the scale to help pick the best one',
+        "img_1": "images/oval_dark_fs_small_web.png",
+        "img_2": "images/dark_fs_small_web_dull.png",
+        "img_3": "images/dark_fs_small_web_shiny.png",
+        "basket": "images/basket.png",
+        "basket_full": "images/basket_full.png",
     }
 ]
 

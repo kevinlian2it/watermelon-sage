@@ -8,17 +8,23 @@
     <div class="row justify-content-center mb-4">
       <!-- Good watermelon column -->
       <div class="col-12 col-md-4 text-center">
-        <img src="{{ url_for('static', filename=lesson.good_image) }}"
-             alt="{{ lesson.good_alt }}"
-             class="img-fluid trait-img mb-2">
+        <img
+          src="{{ url_for('static', filename=lesson.good_image) }}"
+          alt="{{ lesson.good_alt }}"
+          class="img-fluid trait-img mb-2"
+          id="good-img"
+        >
         <p>{{ lesson.good_text }}</p>
       </div>
 
       <!-- Bad watermelon column -->
       <div class="col-12 col-md-4 text-center">
-        <img src="{{ url_for('static', filename=lesson.bad_image) }}"
-             alt="{{ lesson.bad_alt }}"
-             class="img-fluid trait-img mb-2">
+        <img
+          src="{{ url_for('static', filename=lesson.bad_image) }}"
+          alt="{{ lesson.bad_alt }}"
+          class="img-fluid trait-img mb-2"
+          id="bad-img"
+        >
         <p>{{ lesson.bad_text }}</p>
       </div>
     </div>
@@ -26,5 +32,13 @@
     <a href="{{ url_for('learn') }}" class="btn btn-outline-dark">
       Got it!
     </a>
+
+    {# hidden audio elements #}
+    <audio id="good-audio" src="{{ url_for('static', filename=lesson.good_sound) }}"></audio>
+    <audio id="bad-audio"  src="{{ url_for('static', filename=lesson.bad_sound) }}"></audio>
   </div>
+
+  {# include your new lesson.js #}
+  <script src="{{ url_for('static', filename='js/lesson.js') }}"></script>
+
 {% endblock %}

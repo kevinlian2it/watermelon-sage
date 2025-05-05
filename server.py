@@ -1,11 +1,11 @@
 from flask import Flask
 from flask import Response, request, jsonify, render_template, redirect, url_for, session
-import datetime
+from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key'
 
-SERVER_START = datetime.datetime.utcnow()
+SERVER_START = datetime.utcnow()
 
 lessons = [
     {
@@ -74,8 +74,8 @@ lessons = [
         "lesson_id": "6",
         "title": "Sheen",
         "description": "Take a close look at how light bounces off the rind’s surface.",
-        "good_image": "images/shiny.png",
-        "bad_image": "images/dull.png",
+        "bad_image": "images/shiny.png",
+        "good_image": "images/dull.png",
         "good_alt": "dull watermelon",
         "bad_alt": "shiny watermelon",
         "good_text": "A dull exterior indicates a watermelon that has spent more time on the vine and is thus adequately ripe.",
@@ -158,8 +158,9 @@ scenarios = [
         "img_2": "images/base.png",
         "img_3": "images/base.png",
         "scale": "images/scale.png",
-        "scale_10_lb": "images/scale_10_lb.png",
-        "scale_15_lb": "images/scale_15_lb.png",
+        "scale_1": "images/scale_10_lb.png",
+        "scale_2": "images/scale_15_lb.png",
+        "scale_3": "images/scale_10_lb.png",
         "basket": "images/basket.png",
         "basket_full": "images/basket_full.png",
         "answer_1": "Wrong!",
@@ -214,8 +215,8 @@ scenarios = [
         "img_2": "images/oval_dark_fs_small_web.png",
         "img_3": "images/med_fs_large_web.png",
         "audio_1": "audio/ok.mp3",
-        "audio_2": "audio/reverb.mp3",
-        "audio_3": "audio/dud.mp3",
+        "audio_2": "audio/dud.mp3",
+        "audio_3": "audio/reverb.mp3",
         "basket": "images/basket.png",
         "basket_full": "images/basket_full.png",
         "answer_1": "Wrong!",
@@ -272,7 +273,7 @@ def reset_after_restart():
     # only care about our learn routes
     if request.endpoint in ('learn', 'lesson'):
         sess_start = session.get('session_start')
-        if not sess_start or datetime.datetime.fromisoformat(sess_start) < SERVER_START:
+        if not sess_start or datetime.fromisoformat(sess_start) < SERVER_START:
             # first time this session touches learn after a server restart
             session['session_start']   = SERVER_START.isoformat()
             session['visited_lessons'] = []
@@ -319,10 +320,18 @@ def submit_answer(scenario, choice):
     if not (1 <= scenario <= len(scenarios) and 1 <= choice <= 3):
         return jsonify({'error': 'Invalid request'}), 400
 
+    answered = session.get('answered_scenarios', [])
+    already = scenario in answered
+
     # check correctness
     correct = (scenarios[scenario-1].get(f'answer_{choice}') == 'Correct!')
-    if correct:
+
+    if (not already) and correct:
         session['score'] = session.get('score', 0) + 1
+
+    if not already:
+        answered.append(scenario)
+        session['answered_scenarios'] = answered
 
     return jsonify({
         'score': session.get('score', 0),
@@ -333,6 +342,14 @@ def submit_answer(scenario, choice):
 def results():
     score = session.get('score', 0)
     return render_template('results.html', score=score)
+
+@app.route('/retry')
+def retry():
+    # reset the score and answered list
+    session['score'] = 0
+    session['answered_scenarios'] = []
+    # go back to scenario 1
+    return redirect(url_for('challenge', scenario=1))
 
 if __name__ == '__main__':
    app.run(debug = True, port=5001)

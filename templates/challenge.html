@@ -8,37 +8,50 @@
   {% endif %}
 
   <div class="challenge-grid">
-    {# three watermelon options #}
-    {% for i in [1,2,3] %}
-      <img
-        src="{{ url_for('static', filename=scenarios[scenario-1]['img_'~i]) }}"
-        alt="Option {{i}}"
-        draggable="true"
-        class="watermelon-img"
-        id="opt-{{i}}"
-        data-answer="{{ scenarios[scenario-1]['answer_'~i] }}"
-        data-feedback="{{ scenarios[scenario-1]['feedback_'~i] or '' }}"
-      >
-      {% if scenarios[scenario-1].get('audio_'~i) %}
-        <audio id="audio-{{i}}" src="{{ url_for('static', filename=scenarios[scenario-1]['audio_'~i]) }}"></audio>
-      {% endif %}
-    {% endfor %}
-
-    {# the empty basket #}
+  {# three watermelon options #}
+  {% for i in [1,2,3] %}
     <img
-      src="{{ url_for('static', filename=scenarios[scenario-1].basket) }}"
-      alt="Basket"
-      id="basket"
-      class="basket-img"
+      src="{{ url_for('static', filename=scenarios[scenario-1]['img_'~i]) }}"
+      alt="Option {{i}}"
+      draggable="true"
+      class="watermelon-img"
+      id="opt-{{i}}"
+      data-answer="{{ scenarios[scenario-1]['answer_'~i] }}"
+      data-feedback="{{ scenarios[scenario-1]['feedback_'~i] or '' }}"
     >
-  </div>
+    {% if scenarios[scenario-1].get('audio_'~i) %}
+      <audio id="audio-{{i}}" src="{{ url_for('static', filename=scenarios[scenario-1]['audio_'~i]) }}"></audio>
+    {% endif %}
+  {% endfor %}
+
+  {# only show a scale if this scenario defines one #}
+  {% if scenarios[scenario-1].get('scale') %}
+    <img
+      id="scale"
+      src="{{ url_for('static', filename=scenarios[scenario-1].scale) }}"
+      class="scale-img"
+      {% for i in [1,2,3] %}
+      data-scale-{{i}}="{{ url_for('static', filename=scenarios[scenario-1]['scale_'~i]) }}"
+      {% endfor %}
+    >
+  {% endif %}
+
+  {# the empty basket #}
+  <img
+    src="{{ url_for('static', filename=scenarios[scenario-1].basket) }}"
+    alt="Basket"
+    id="basket"
+    class="basket-img"
+  >
+</div>
+
 
   <div id="feedback" class="feedback hidden">
     <h3 id="feedback-text"></h3>
   </div>
 
   <div class="controls">
-    <div class="score-box">SCORE: <span id="score">{{score}}</span>/10</div>
+    <div class="score-box-quiz">SCORE: <span id="score">{{score}}</span>/10</div>
     {% if scenario < 10 %}
       <a href="{{ url_for('challenge', scenario=scenario+1) }}">
         <button id="next-btn" disabled>Next</button>

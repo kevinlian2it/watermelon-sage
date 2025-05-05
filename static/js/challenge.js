@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const options    = Array.from(document.querySelectorAll('.watermelon-img'));
   const basket     = document.getElementById('basket');
+  const scale    = document.getElementById('scale');
   const feedback   = document.getElementById('feedback');
   const fbText     = document.getElementById('feedback-text');
   const nextBtn    = document.getElementById('next-btn') || document.getElementById('results-btn');
@@ -30,6 +31,23 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  if (scale) {
+    // allow dragging over the scale
+    scale.addEventListener('dragover', e => e.preventDefault());
+    scale.addEventListener('drop', e => {
+  e.preventDefault();
+  const picked = e.dataTransfer.getData('text/plain');
+
+  // read the attribute directly:
+  const newSrc = scale.getAttribute(`data-scale-${picked}`);
+  if (newSrc) {
+    scale.src = newSrc;
+  } else {
+    console.warn(`no data-scale-${picked} on`, scale);
+  }
+});
+  }
 
   basket.addEventListener('dragover', e => e.preventDefault());
   basket.addEventListener('drop', e => {

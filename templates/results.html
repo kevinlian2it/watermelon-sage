@@ -1,9 +1,33 @@
-<!-- results.html -->
+{# templates/results.html #}
 {% extends "layout.html" %}
+
+{% block title %}Results – The Watermelon Sage{% endblock %}
+
 {% block content %}
-  <div class="page-container">
-    <h1>Challenge Complete!</h1>
-    <p>Your final score: {{ score }}/10</p>
-    <a href="{{ url_for('challenge', scenario=1) }}"><button>Retry</button></a>
+<div class="results-container">
+  <h2 class="results-title">RESULTS</h2>
+
+  {# score‐dependent flair #}
+  {% if score >= 7 %}
+    <p class="results-subtitle">Great job! You really know your watermelons.</p>
+    <div class="score-box high">{{ score }}/10</div>
+  {% elif score >= 4 %}
+    <p class="results-subtitle">Not bad! A little more practice and you’ll be a sage.</p>
+    <div class="score-box mid">{{ score }}/10</div>
+  {% else %}
+    <p class="results-subtitle">Keep at it! You’ll pick ’em in no time.</p>
+    <div class="score-box low">{{ score }}/10</div>
+  {% endif %}
+
+  <div class="results-actions">
+    {% if score < 10 %}
+      <a href="{{ url_for('retry') }}" class="btn retry-btn">
+        Retry Challenge
+      </a>
+    {% endif %}
+    <a href="{{ url_for('learn') }}" class="btn learn-btn">
+      Return to Learning
+    </a>
   </div>
+</div>
 {% endblock %}

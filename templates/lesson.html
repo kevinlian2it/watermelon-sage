@@ -29,9 +29,30 @@
       </div>
     </div>
 
-    <a href="{{ url_for('learn') }}" class="lesson-btn">
-      Got it!
-    </a>
+    <div class="row justify-content-center mb-5">
+        <div class="col-12 col-md-8">
+          <div class="d-flex justify-content-between"
+               style="margin-left: -10px; margin-right: -10px;">
+            <!-- Back to Learn -->
+            <a href="{{ url_for('learn') }}" class="lesson-btn">
+              Return to Learn Page
+            </a>
+      
+            {% set next_id = lesson.lesson_id|int + 1 %}
+            {% if lesson.lesson_id|int < 6 %}
+              <!-- Next Lesson -->
+              <a href="{{ url_for('lesson', lesson_id=next_id) }}" class="lesson-btn">
+                Next ▶
+              </a>
+            {% else %}
+              <!-- Last lesson: go to quiz -->
+              <a href="{{ url_for('challenge', scenario=1) }}" class="lesson-btn">
+                Start the Challenge!
+              </a>
+            {% endif %}
+          </div>
+        </div>
+    </div>
 
     {# hidden audio elements #}
     <audio id="good-audio" src="{{ url_for('static', filename=lesson.good_sound) }}"></audio>

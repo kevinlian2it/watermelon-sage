@@ -37,9 +37,15 @@
       {% endfor %}
     </div>
 
-    <a href="{{ url_for('challenge', scenario=1) }}"
-       class="btn btn-outline-secondary mt-4">
-      Confident? Start the challenge!
-    </a>
+    {% if visited_lessons|length == lessons|length %}
+      <a href="{{ url_for('challenge', scenario=1) }}"
+         class="lesson-btn">
+        Confident? Start the challenge!
+      </a>
+    {% else %}
+      <button class="lesson-btn disabled" disabled>
+        Confident? Start the challenge!
+      </button>
+    {% endif %}
   </div>
 {% endblock %}

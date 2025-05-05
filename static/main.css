@@ -159,6 +159,13 @@ body { font-family: sans-serif; background-color: #f0f0f0; }
     box-shadow: 0 0 15px rgba(56, 142, 60, 0.6);
 }
 
+.lesson-btn.disabled {
+    color: #555;
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 /* challenge layout */
 .challenge {
   text-align: center;

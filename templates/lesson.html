@@ -2,8 +2,8 @@
 
 {% block content %}
   <div class="text-center">
-    <h2 class="font-weight-bold mb-3">{{ lesson.title|upper }}</h2>
-    <p class="mb-4">{{ lesson.description }}</p>
+    <h2 class="lesson-title">{{ lesson.title|upper }}</h2>
+    <p class="lesson-subtitle">{{ lesson.description }}</p>
 
     <div class="row justify-content-center mb-4">
       <!-- Good watermelon column -->
@@ -14,7 +14,7 @@
           class="img-fluid trait-img mb-2"
           id="good-img"
         >
-        <p>{{ lesson.good_text }}</p>
+        <p class="lesson-subtitle">{{ lesson.good_text }}</p>
       </div>
 
       <!-- Bad watermelon column -->
@@ -25,11 +25,11 @@
           class="img-fluid trait-img mb-2"
           id="bad-img"
         >
-        <p>{{ lesson.bad_text }}</p>
+        <p class="lesson-subtitle">{{ lesson.bad_text }}</p>
       </div>
     </div>
 
-    <a href="{{ url_for('learn') }}" class="btn btn-outline-secondary mt-4">
+    <a href="{{ url_for('learn') }}" class="lesson-btn">
       Got it!
     </a>
 

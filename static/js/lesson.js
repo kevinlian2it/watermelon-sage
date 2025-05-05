@@ -1,21 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const goodImg = document.getElementById('good-img');
-  const badImg  = document.getElementById('bad-img');
-  const goodAudio = document.getElementById('good-audio');
-  const badAudio  = document.getElementById('bad-audio');
+  const pairs = [
+    { imgId: 'good-img', audioId: 'good-audio' },
+    { imgId: 'bad-img',  audioId: 'bad-audio'  }
+  ];
 
-  // make cursor a pointer
-  [goodImg, badImg].forEach(img => {
-    img.style.cursor = 'pointer';
-  });
+  pairs.forEach(({ imgId, audioId }) => {
+    const img   = document.getElementById(imgId);
+    const audio = document.getElementById(audioId);
+    
+    // only if both img and audio exist
+    if (img && audio) {
+      // mark image as audio-enabled
+      img.classList.add('audio-enabled');
 
-  goodImg.addEventListener('click', () => {
-    goodAudio.currentTime = 0;
-    goodAudio.play();
-  });
-
-  badImg.addEventListener('click', () => {
-    badAudio.currentTime = 0;
-    badAudio.play();
+      img.addEventListener('click', () => {
+        audio.currentTime = 0;
+        audio.play().catch(err => console.error('Audio play failed:', err));
+      });
+    }
   });
 });

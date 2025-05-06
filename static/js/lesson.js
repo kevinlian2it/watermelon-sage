@@ -10,9 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // only if both img and audio exist
     if (img && audio) {
-      // mark image as audio-enabled
-      img.classList.add('audio-enabled');
-
       img.addEventListener('click', () => {
         audio.currentTime = 0;
         audio.play().catch(err => console.error('Audio play failed:', err));

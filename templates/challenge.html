@@ -53,14 +53,20 @@
   <div class="controls">
     <div class="score-box-quiz">SCORE: <span id="score">{{score}}</span>/10</div>
     {% if scenario < 10 %}
-      <a href="{{ url_for('challenge', scenario=scenario+1) }}">
-        <button id="next-btn" disabled>Next</button>
-      </a>
-    {% else %}
-      <a href="{{ url_for('results') }}">
-        <button id="results-btn" disabled>Results</button>
-      </a>
-    {% endif %}
+    <button
+      id="next-btn"
+      class="controls-btn disabled"   {# start disabled #}
+      data-next-url="{{ url_for('challenge', scenario=scenario+1) }}"
+      disabled
+    >Next</button>
+  {% else %}
+    <button
+      id="results-btn"
+      class="controls-btn disabled"
+      data-next-url="{{ url_for('results') }}"
+      disabled
+    >Results</button>
+  {% endif %}
   </div>
 </div>
 <script>

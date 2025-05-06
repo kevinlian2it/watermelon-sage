@@ -179,7 +179,7 @@ body { font-family: sans-serif; background-color: #f0f0f0; }
 }
 .subtitle {
   font-size: 1.25rem;
-  color: #666;
+  color: #555;
   font-family: 'Roboto Condensed', sans-serif;
   margin-bottom: 30px;
 }
@@ -215,6 +215,7 @@ body { font-family: sans-serif; background-color: #f0f0f0; }
 /* feedback & controls */
 .feedback {
   margin: 20px auto;
+    font-family: 'Roboto Condensed', sans-serif;
   max-width: 500px;
 }
 .feedback.hidden { display: none; }
@@ -242,20 +243,37 @@ body { font-family: sans-serif; background-color: #f0f0f0; }
   margin-right: auto;
 }
 .score-box-quiz {
-  font-size: 1rem;
-  border: 1px solid #666;
+    color: #555;
+  font-size: 1.15rem;
+  border: 4px solid #489c42;
+    border-radius: 8px;
+    font-family: 'Roboto Condensed', sans-serif;
   padding: 10px 20px;
 }
 .controls button {
-  padding: 12px 24px;
-  text-transform: uppercase;
-  border: 1px solid #666;
-  background: white;
-  cursor: pointer;
+    color: #555;
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #c5e1a5;
+    border: 4px solid #489c42;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    padding: 8px 24px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
 }
-.controls button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+
+.controls button:hover {
+    transform: scale(1.05);
+    color: #555;
+    box-shadow: 0 0 15px rgba(56, 142, 60, 0.6);
+}
+
+.controls-btn.disabled {
+    color: #555;
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 .trait-img {
@@ -286,7 +304,7 @@ body { font-family: sans-serif; background-color: #f0f0f0; }
 }
 .results-subtitle {
   font-family: 'Roboto Condensed', sans-serif;
-  color: #666;
+  color: #555;
   font-size: 1.25rem;
   margin-bottom: 30px;
 }

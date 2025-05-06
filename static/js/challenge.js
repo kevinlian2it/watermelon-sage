@@ -59,7 +59,13 @@ document.addEventListener('DOMContentLoaded', () => {
   basket.src = basket.src.replace('.png', '_full.png');
   options.forEach(o => o.setAttribute('draggable', 'false'));
   pickedImg.classList.add('dragging');
-  nextBtn.disabled = false;
+  // unlock Next/Results button
+nextBtn.disabled = false;
+nextBtn.classList.remove('disabled');
+// when clicked, go to the saved URL
+nextBtn.addEventListener('click', () => {
+  window.location = nextBtn.dataset.nextUrl;
+});
 
   // now POST to server to get updated score + correctness
   fetch(`/submit_answer/${window.CURRENT_SCENARIO}/${picked}`, {

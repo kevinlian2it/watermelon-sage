@@ -11,7 +11,7 @@
         <img
           src="{{ url_for('static', filename=lesson.good_image) }}"
           alt="{{ lesson.good_alt }}"
-          class="img-fluid trait-img mb-2"
+          class="img-fluid trait-img mb-2{% if lesson.lesson_id|int == 1 %} audio-enabled{% endif %}"
           id="good-img"
         >
         <p class="lesson-subtitle">{{ lesson.good_text }}</p>
@@ -22,7 +22,7 @@
         <img
           src="{{ url_for('static', filename=lesson.bad_image) }}"
           alt="{{ lesson.bad_alt }}"
-          class="img-fluid trait-img mb-2"
+          class="img-fluid trait-img mb-2{% if lesson.lesson_id|int == 1 %} audio-enabled{% endif %}"
           id="bad-img"
         >
         <p class="lesson-subtitle">{{ lesson.bad_text }}</p>

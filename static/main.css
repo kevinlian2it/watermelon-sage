@@ -72,12 +72,12 @@
 }
 
 .home-start-subtitle {
-    color: #555;
+    color: #6c6b6b;
     text-align: center;
     font-family: 'Roboto Condensed', sans-serif;
-    font-size: 1.5rem;
-    margin-top: 1.5rem;
-    margin-bottom: 2rem;
+    font-size: 1.45rem;
+    margin-top: 1.85rem;
+    margin-bottom: 4rem;
 }
 
 .custom-navbar .container {

@@ -432,12 +432,13 @@ body { font-family: sans-serif; background-color: #f0f0f0; }
   background: linear-gradient(#95cd25, #caec86);
   border-color: #2e9228;
   color: #2e9228;
+  outline: solid 8px #82c62a;
 }
 .score-box.mid {
   background: #fff9c4;
   background: linear-gradient(#fbb565, #fff6a2);
   border-color: #ffe570;
-  outline: solid 8px #77bc1e;
+  outline: solid 8px #6fa922;
   color: #f39600;
 }
 .score-box.low {

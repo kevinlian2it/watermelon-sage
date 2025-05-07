@@ -1,6 +1,12 @@
 {% extends "layout.html" %}
 
 {% block content %}
+  <video autoplay muted loop class="video-background">
+    <source src="{{ url_for('static', filename='video/falling_watermelons.mp4') }}" type="video/mp4">
+    Your browser does not support the video tag; video of falling watermelon slices.
+  </video>
+
+
   <div class="text-center">
     <h2 class="home-welcome">Welcome!</h2>
     <p class="home-subtitle">Ready to learn how to snag the best watermelon at the store?</p>

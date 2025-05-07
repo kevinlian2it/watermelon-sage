@@ -27,7 +27,7 @@
 }
 
 .home-welcome {
-    color: #2e7d32;
+    color: #2e9228;
     font-family: 'Titan One', cursive;
     font-size: 3rem;
     font-weight: bold;
@@ -51,25 +51,29 @@
     font-family: 'Titan One', cursive;
     font-size: 2rem;
     font-weight: bold;
-    color: #c5e1a5;
-    background: linear-gradient(145deg, #66bb6a, #388e3c);
-    border: 8px solid #8bc34a;
-    border-radius: 4px;
+    color: #c5f26a;
+    background: linear-gradient(#2e9228, #98be4b);
+    border: 5px solid #a8df39;
+    outline: 10px solid #66ae40;
+    border-radius: 2px;
     text-decoration: none;
     transition: transform 0.1s ease-in-out, box-shadow 0.1s;
 }
   
 .home-start-btn:hover {
     transform: scale(1.05);
-    color: #c5e1a5;
+    color: #c6f46a;
+    border: 5px solid #cef878;
+    background: linear-gradient(#299d23, #acda50);
     box-shadow: 0 0 15px rgba(56, 142, 60, 0.6);
 }
 
 .home-start-subtitle {
     color: #555;
+    text-align: center;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 1.5rem;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     margin-bottom: 2rem;
 }
 
@@ -90,19 +94,19 @@
 .navbar-brand,
 .nav-link {
     font-family: 'Titan One', cursive;
-    color:       #c5e1a5 !important;
+    color:       #cade67 !important;
     font-size:   1.25rem;
 }
   
 .nav-link:hover {
-    color: #c5e1a5 !important;
+    color: #cade67 !important;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: sans-serif; background-color: #f0f0f0; }
 
 .learn-title {
-    color: #388e3c;
+    color: #2e9228;
     font-family: 'Titan One', cursive;
     font-size: 2.5rem;
     font-weight: bold;
@@ -114,6 +118,13 @@ body { font-family: sans-serif; background-color: #f0f0f0; }
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 1.25rem;
     margin-bottom: 2rem;
+}
+
+.learn-text {
+  color: #999;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 0.95rem;
+    margin-top: 0.6rem;
 }
 
 .trait-img.audio-enabled {
@@ -141,9 +152,9 @@ body { font-family: sans-serif; background-color: #f0f0f0; }
 }
 
 .lesson-btn {
-    color: #555;
+    color: #2e9228;
     font-family: 'Roboto Condensed', sans-serif;
-    background-color: #c5e1a5;
+    background-color: #bee86e;
     border: 4px solid #489c42;
     border-radius: 8px;
     font-size: 1.25rem;
@@ -155,15 +166,42 @@ body { font-family: sans-serif; background-color: #f0f0f0; }
 
 .lesson-btn:hover {
     transform: scale(1.05);
-    color: #555;
+    color: #2e9228;
     box-shadow: 0 0 15px rgba(56, 142, 60, 0.6);
 }
 
 .lesson-btn.disabled {
-    color: #555;
+    color: #2e9228;
     opacity: 0.5;
     cursor: not-allowed;
     pointer-events: none;
+}
+
+.challenge-btn {
+  color: #599f34;
+  font-family: 'Titan One', cursive;
+  background-color: #bee86e;
+  border: 4px solid #66ae40;
+  border-radius: 8px;
+  font-size: 1.25rem;
+  padding: 8px 24px;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.challenge-btn:hover {
+  transform: scale(1.05);
+  color: #599f34;
+  background: linear-gradient(#cbf778, #deffa2);
+  box-shadow: 0 0 15px rgba(56, 142, 60, 0.6);
+}
+
+.challenge-btn.disabled {
+  color: #599f34;
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 /* challenge layout */
@@ -172,7 +210,7 @@ body { font-family: sans-serif; background-color: #f0f0f0; }
   padding: 40px 20px;
 }
 .challenge-title {
-  color: #559f4a;
+  color: #2e9228;
   font-family: 'Titan One', cursive;
   font-size: 2.5rem;
   margin-bottom: 6px;
@@ -215,22 +253,24 @@ body { font-family: sans-serif; background-color: #f0f0f0; }
 /* feedback & controls */
 .feedback {
   margin: 20px auto;
-    font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   max-width: 500px;
+  color: #6c6c6c;
 }
 .feedback.hidden { display: none; }
 .feedback h3 {
   display: inline-block;
-  padding: 15px 25px;
-  border: 1px solid #aaa;
+  padding: 25px 30px;
+  border: 1px solid #d3d3d3;
+  border-radius: 15px;
   background: #f7f7f7;
 }
 .feedback .correct {
-  color: #2a9d8f;      /* green */
+  color: #66ae40;      /* green */
   font-weight: bold;
 }
 .feedback .incorrect {
-  color: #e76f51;      /* red */
+  color: #ff523b;      /* red */
   font-weight: bold;
 }
 .controls {
@@ -245,16 +285,16 @@ body { font-family: sans-serif; background-color: #f0f0f0; }
 .score-box-quiz {
     color: #555;
   font-size: 1.15rem;
-  border: 4px solid #489c42;
+  border: 4px solid #66ae40;
     border-radius: 8px;
     font-family: 'Roboto Condensed', sans-serif;
   padding: 10px 20px;
 }
-.controls button {
-    color: #555;
+.controls-btn {
+    color: #2e9228;
     font-family: 'Roboto Condensed', sans-serif;
-    background-color: #c5e1a5;
-    border: 4px solid #489c42;
+    background-color: #bee86e;
+    border: 4px solid #66ae40;
     border-radius: 8px;
     font-size: 1.25rem;
     padding: 8px 24px;
@@ -265,12 +305,12 @@ body { font-family: sans-serif; background-color: #f0f0f0; }
 
 .controls button:hover {
     transform: scale(1.05);
-    color: #555;
+    color: #2e9228;
     box-shadow: 0 0 15px rgba(56, 142, 60, 0.6);
 }
 
 .controls-btn.disabled {
-    color: #555;
+    color: #2e9228;
     opacity: 0.5;
     cursor: not-allowed;
     pointer-events: none;
@@ -281,16 +321,66 @@ body { font-family: sans-serif; background-color: #f0f0f0; }
     height: auto;
 }
 
-.btn-light.border:hover {
-    background-color: #e9ecef;
-    border-color:     #e9ecef;
-  }
 
-.btn-visited {
-    background-color: #e9ecef !important;
-    border-color:     #e9ecef !important;
-    color:            #495057 !important;
+/* trait buttons container */
+
+.trait-btn {
+  display: flex;
+  width: 90%;
+  height: 150px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Titan One', cursive;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #c5f26a;
+  background: linear-gradient(#2e9228, #98be4b);
+  border: 5px solid #a8df39;
+  outline: 10px solid #66ae40;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: transform 0.1s ease-in-out, box-shadow 0.1s;
 }
+
+.trait-btn:hover {
+  transform: scale(1.05);
+  color: #c6f46a;
+  border: 5px solid #cef878;
+  background: linear-gradient(#299d23, #acda50);
+  box-shadow: 0 0 15px rgba(56, 142, 60, 0.6);
+}
+
+.trait-btn-visited {
+  display: flex;
+  width: 90%;
+  height: 150px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: 'Titan One', cursive;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #2e9228;
+  background: linear-gradient(#127d0b, #0e5609);
+  border: 5px solid #2e9228;
+  outline: 10px solid #0e5609;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: transform 0.1s ease-in-out, box-shadow 0.1s;
+}
+
+.trait-btn-visited:hover {
+  transform: scale(1.05);
+  color: #38a031;
+  background: linear-gradient(#12620d, #1a8813);
+  border: 5px solid #38a031;
+  outline: 10px solid #12620d;
+  box-shadow: 0 0 15px rgba(56, 142, 60, 0.6);
+}
+
 /* results page container */
 .results-container {
   text-align: center;
@@ -350,7 +440,7 @@ body { font-family: sans-serif; background-color: #f0f0f0; }
   padding: 20px 30px;
   border: 4px solid #4caf50;
   border-radius: 6px;
-  background: #c5e1a5;
+  background: #bee86e;
   color: #2e7d32;
   text-decoration: none;
   transition: transform 0.1s, box-shadow 0.1s;

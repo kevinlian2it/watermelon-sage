@@ -36,18 +36,6 @@ lessons = [
 
     {
         "lesson_id": "3",
-        "title": "Shape",
-        "description": "Note that some cultivation methods artificially select for perfectly round shapes without increasing the quality of the watermelon.",
-        "good_image": "images/oval.png",
-        "bad_image": "images/bumpy.png",
-        "good_alt": "symmetrical oval watermelon",
-        "bad_alt": "bumpy watermelon",
-        "good_text": "A symmetrical watermelon with an even surface is likely to be juicier and sweeter.",
-        "bad_text": "Irregular bumps may be a sign of incomplete pollination or growth stress."
-    },
-
-    {
-        "lesson_id": "4",
         "title": "Field Spot",
         "description": "The field spot is the part of the watermelon that was in contact with the ground as it grew.",
         "good_image": "images/dark_field_spot.png",
@@ -56,6 +44,18 @@ lessons = [
         "bad_alt": "watermelon with pale field spot",
         "good_text": "A darker, yellow-orange field spot indicates a riper, sweeter watermelon that spent longer on the ground.",
         "bad_text": "A light field spot indicates that the watermelon was harvested prematurely and is underripe."
+    },
+
+    {
+        "lesson_id": "4",
+        "title": "Sheen",
+        "description": "Take a close look at how light bounces off the rind’s surface.",
+        "bad_image": "images/shiny.png",
+        "good_image": "images/dull.png",
+        "good_alt": "dull watermelon",
+        "bad_alt": "shiny watermelon",
+        "good_text": "A dull exterior indicates a watermelon that has spent more time on the vine and is thus adequately ripe.",
+        "bad_text": "A shiny watermelon with its waxy protective exterior intact indicates a watermelon that is not yet ripe."
     },
 
     {
@@ -72,14 +72,14 @@ lessons = [
 
     {
         "lesson_id": "6",
-        "title": "Sheen",
-        "description": "Take a close look at how light bounces off the rind’s surface.",
-        "bad_image": "images/shiny.png",
-        "good_image": "images/dull.png",
-        "good_alt": "dull watermelon",
-        "bad_alt": "shiny watermelon",
-        "good_text": "A dull exterior indicates a watermelon that has spent more time on the vine and is thus adequately ripe.",
-        "bad_text": "A shiny watermelon with its waxy protective exterior intact indicates a watermelon that is not yet ripe."
+        "title": "Shape",
+        "description": "Note that some cultivation methods artificially select for perfectly round shapes without increasing the quality of the watermelon.",
+        "good_image": "images/oval.png",
+        "bad_image": "images/bumpy.png",
+        "good_alt": "symmetrical oval watermelon",
+        "bad_alt": "bumpy watermelon",
+        "good_text": "A symmetrical watermelon with an even surface is likely to be juicier and sweeter.",
+        "bad_text": "Irregular bumps may be a sign of incomplete pollination or growth stress."
     }
 ]
 

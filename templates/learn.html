@@ -4,48 +4,59 @@
   <div class="text-center">
     <h2 class="learn-title">LEARN YOUR WATERMELONS</h2>
     <p class="learn-subtitle">
-      To pick out the best watermelon, you’ll need to look at the following traits:
+      To pick out the best watermelon, look at the following traits (listed in order of importance):
     </p>
     <div class="row justify-content-center mb-3">
       {% for l in lessons[:3] %}
-        <div class="col-4 col-md-2 mb-3">
+        <div class="col-4 col-md-3 mb-3">
           <a href="{{ url_for('lesson', lesson_id=l.lesson_id|int) }}"
-             class="btn w-100 p-4
+             class="p-4
                {% if l.lesson_id|int in visited_lessons %}
-                 btn-visited
+                 trait-btn-visited
                {% else %}
-                 btn-light border
+                 trait-btn
                {% endif %}">
-            {{ l.title|upper }}
+            {{ l.lesson_id }}. {{ l.title|upper }}
           </a>
         </div>
       {% endfor %}
     </div>
     <div class="row justify-content-center mb-3">
       {% for l in lessons[3:6] %}
-        <div class="col-4 col-md-2 mb-3">
+        <div class="col-4 col-md-3 mb-3">
           <a href="{{ url_for('lesson', lesson_id=l.lesson_id|int) }}"
-             class="btn w-100 p-4
+             class="p-4
                {% if l.lesson_id|int in visited_lessons %}
-                 btn-visited
+                 trait-btn-visited
                {% else %}
-                 btn-light border
+                 trait-btn
                {% endif %}">
-            {{ l.title|upper }}
+            {{ l.lesson_id }}. {{ l.title|upper }}
           </a>
         </div>
       {% endfor %}
     </div>
 
+    <div class="learn-subtitle">
+    </div>
+
     {% if visited_lessons|length == lessons|length %}
       <a href="{{ url_for('retry') }}"
-         class="lesson-btn">
-        Confident? Start the challenge!
+         class="challenge-btn">
+        CHALLENGE
       </a>
+      <p class="learn-text">
+        Not ready yet? Re-visit any of the traits before starting the challenge
+      </p>
+
     {% else %}
-      <button class="lesson-btn disabled" disabled>
-        Confident? Start the challenge!
+      <button class="challenge-btn disabled" disabled>
+        CHALLENGE
       </button>
+      <p class="learn-text">
+        Visit all the traits to unlock the challenge!
+      </p>
+
     {% endif %}
   </div>
 {% endblock %}
